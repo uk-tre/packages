@@ -27,6 +27,8 @@
                     }
                 ]
             }
-        }
+        },
+        "required": ["package_name", "version", "approval_date", "revoke_date"],
+        "additionalProperties": false
     }
 }
