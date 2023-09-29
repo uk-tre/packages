@@ -2,45 +2,9 @@
 
 import argparse
 import json
-import pathlib
+from pathlib import Path
 
 import jsonschema
-
-
-schema = {
-    "type": "array",
-    "minItems": 1,
-    "uniqueItems": True,
-    "items": {
-        "type": "object",
-        "properties": {
-            "package_name": {"type": "string"},
-            "version": {
-                "type": "string",
-                # PEP404 version string prefixed with a comparison operator
-                # Excluding trailing '.*'
-                # https://peps.python.org/pep-0440/#version-specifiers
-                # https://peps.python.org/pep-0440/#appendix-b-parsing-version-strings-with-regular-expressions
-                "pattern": r'^(~=|==|!=|<=|>=|<|>|===)\s*([1-9][0-9]*!)?(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))*((a|b|rc)(0|[1-9][0-9]*))?(\.post(0|[1-9][0-9]*))?(\.dev(0|[1-9][0-9]*))?$'
-            },
-            "approval_date": {
-                "type": "string",
-                "format": "date"
-            },
-            "revoke_date": {
-                "oneOf": [
-                    {
-                        "type": "string",
-                        "format": "date"
-                    },
-                    {
-                        "type": "null"
-                    }
-                ]
-            }
-        }
-    }
-}
 
 
 class ValidationError(Exception):
@@ -54,11 +18,25 @@ def main() -> None:
     )
     parser.add_argument(
         "filename",
-        type=pathlib.Path,
+        type=Path,
         nargs="+",
+    )
+    parser.add_argument(
+        "-o",
+        "--other",
+        action="store_true"
     )
 
     clargs = parser.parse_args()
+
+    if clargs.other:
+        schema_filename = "schema_other.json"
+    else:
+        schema_filename = "schema.json"
+
+    schema_path = Path(__file__).parent.parent.absolute() / schema_filename
+    with open(schema_path, "r") as file:
+        schema = json.load(file)
 
     for path in clargs.filename:
         with open(path, "r") as file:
