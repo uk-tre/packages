@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "array",
+    "minItems": 1,
+    "uniqueItems": true,
+    "items": {
+        "type": "object",
+        "properties": {
+            "package_name": {"type": "string"},
+            "url": {
+                "type": "string",
+                "format": "hostname"
+            },
+            "version": {
+                "type": "string",
+                "_comment": "PEP404 version string prefixed with a comparison operator, Excluding trailing '.*'.\nhttps://peps.python.org/pep-0440/#version-specifiers\nhttps://peps.python.org/pep-0440/#appendix-b-parsing-version-strings-with-regular-expressions",
+                "pattern": "^(~=|==|!=|<=|>=|<|>|===)\\s*([1-9][0-9]*!)?(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))*((a|b|rc)(0|[1-9][0-9]*))?(\\.post(0|[1-9][0-9]*))?(\\.dev(0|[1-9][0-9]*))?$"
+            },
+            "approval_date": {
+                "type": "string",
+                "format": "date"
+            },
+            "revoke_date": {
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
+            }
+        },
+        "required": ["package_name", "url", "version", "approval_date", "revoke_date"],
+        "additionalProperties": false
+    }
+}
