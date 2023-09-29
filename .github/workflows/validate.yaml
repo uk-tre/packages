@@ -24,3 +24,21 @@ jobs:
 
       - name: Validate repository lists
         run: ./utility/validate.py $(find **/*.json -not -name 'other.json')
+
+  validate_other_lists:
+    name: Validate other lists
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install -r utility/requirements.txt
+
+      - name: Validate repository lists
+        run: ./utility/validate.py --other $(find **/other.json)
