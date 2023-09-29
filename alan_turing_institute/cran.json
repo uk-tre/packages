@@ -1,13 +1,13 @@
 [
     {
         "package_name": "data.table",
-        "version": "*",
+        "version": "> 0",
         "approval_date": "2023-09-29",
         "revoke_date": null
     },
     {
         "package_name": "dplyr",
-        "version": "*",
+        "version": "> 0",
         "approval_date": "2023-09-29",
         "revoke_date": null
     }
