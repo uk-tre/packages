@@ -9,7 +9,7 @@
             "package_name": {"type": "string"},
             "url": {
                 "type": "string",
-                "format": "hostname"
+                "format": "uri"
             },
             "version": {
                 "type": "string",
