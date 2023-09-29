@@ -1,0 +1,14 @@
+[
+    {
+        "package_name": "numpy",
+        "version": "*",
+        "approval_date": "2023-09-29",
+        "revoke_date": null
+    },
+    {
+        "package_name": "pandas",
+        "version": "*",
+        "approval_date": "2023-09-29",
+        "revoke_date": null
+    }
+]
