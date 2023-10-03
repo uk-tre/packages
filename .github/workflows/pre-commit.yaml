@@ -1,5 +1,5 @@
 ---
-name: Check Json formatting
+name: Check JSON formatting
 
 on:
   pull_request:
