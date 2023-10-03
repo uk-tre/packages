@@ -1,0 +1,32 @@
+[
+  {
+    "package_name": "arviz",
+    "version": "== 0.16.1",
+    "approval_date": "2023-10-02",
+    "revoke_date": null
+  },
+  {
+    "package_name": "cycler",
+    "version": "== 0.12.0",
+    "approval_date": "2023-10-02",
+    "revoke_date": null
+  },
+  {
+    "package_name": "matplotlib",
+    "version": "== 3.8.0",
+    "approval_date": "2023-10-02",
+    "revoke_date": null
+  },
+  {
+    "package_name": "numpy",
+    "version": "== 1.26.0",
+    "approval_date": "2023-10-02",
+    "revoke_date": null
+  },
+  {
+    "package_name": "pymc3",
+    "version": "== 3.11.4",
+    "approval_date": "2023-10-02",
+    "revoke_date": null
+  }
+]
