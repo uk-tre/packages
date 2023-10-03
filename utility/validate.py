@@ -26,6 +26,11 @@ def main() -> None:
         "--other",
         action="store_true"
     )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true"
+    )
 
     clargs = parser.parse_args()
 
@@ -39,6 +44,8 @@ def main() -> None:
         schema = json.load(file)
 
     for path in clargs.filename:
+        if clargs.verbose:
+            print(f"Validating {path}")
         with open(path, "r") as file:
             try:
                 jsonschema.validate(
