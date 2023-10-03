@@ -2,7 +2,7 @@
   {
     "package_name": "RStudio",
     "url": "https://posit.co/download/rstudio-desktop/",
-    "version": "*",
+    "version": "> 0",
     "approval_date": "2023-09-29",
     "revoke_date": null
   }
