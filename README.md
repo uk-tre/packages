@@ -4,8 +4,8 @@ Structured records of approved packages from TRE operators.
 
 ## Structure
 
-- Top level
-    - Organisation
+- `./`
+    - `<organisation_name>`
         - `README.md`
           Organisational documentation
           For example, details of your approval process
