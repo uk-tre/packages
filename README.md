@@ -76,3 +76,27 @@ $ cat **/pypi.json | jq -s 'add | map(select(.revoke_date == null)) | [.[].packa
 "pandas"
 "pymc3"
 ```
+
+#### Python
+
+With a local copy of the repository using the Python standard library.
+For example, to get a list of PyPI packages currently allowed any organisation:
+
+```Python
+import json
+from pathlib import Path
+
+p = Path("./")
+packages = [
+    package
+    for sublist in [json.load(open(f, "r")) for f in p.glob("**/pypi.json")]
+    for package in sublist
+]
+allowed = [
+    package["package_name"]
+    for package in packages
+    if package["revoke_date"] is None
+]
+allowed = list(set(allowed))
+print(allowed)
+```
