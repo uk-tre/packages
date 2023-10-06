@@ -100,3 +100,25 @@ allowed = [
 allowed = list(set(allowed))
 print(allowed)
 ```
+
+### Contributing
+
+#### Adding an organisation
+
+To add your organisation, create a new directory at the top level of the repository.
+Store your package lists in that directory.
+Also, create a `README.md` file where you can write information about your organisation and its package approval process.
+
+#### Making changes
+
+After you have made your changes, open a PR to the main branch.
+
+#### Validation and CI
+
+There are CI jobs which must pass for changes to be merged.
+
+A validation process ensures taht package lists match the schemas.
+You can test this locally using the script `utility/validate.py`.
+
+[Prettier](https://prettier.io/) is used to enforce some code style.
+The repository includes a [pre-commit](https://pre-commit.com/) hook for this.
