@@ -47,3 +47,32 @@ For example,
 
 Additionally for packages not in a major repository, _i.e._ those in `other.json`, a `url` field is added to uniquely identify the package and give its source.
 The other schema is described in [`schema_other.json`](schema_other.json).
+
+### Usage
+
+The package lists are simply text files conforming to the JSON schemas.
+You can build queries by parsing these files in a local copy of the repository or from GitHub.
+
+#### Command line
+
+Using [`httpie`](https://httpie.io/) and [`jq`](https://jqlang.github.io/jq/).
+For example, to get a list of PyPI packages currently allowed by The Alan Turing Institute:
+
+```console
+$ https https://raw.githubusercontent.com/uk-tre/packages/main/alan_turing_institute/pypi.json  | jq '.[] | select(.revoke_date == null) | .package_name'
+"pandas"
+...
+```
+
+With a local copy of the repository using `cat` and `jq`.
+For example, to get a list of PyPI packages currently allowed any organisation:
+
+```console
+$ cat **/pypi.json | jq -s 'add | map(select(.revoke_date == null)) | [.[].package_name] | unique | .[]'
+"arviz"
+"cycler"
+"matplotlib"
+"numpy"
+"pandas"
+"pymc3"
+```
