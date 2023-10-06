@@ -5,12 +5,12 @@ Structured records of approved packages from TRE operators.
 ## Structure
 
 - `./`
-    - `<organisation_name>`
-        - `README.md`
-          Organisational documentation
-          For example, details of your approval process
-        - `<repository>.json `
-        - `other.json`
+  - `<organisation_name>`
+    - `README.md`
+      Organisational documentation
+      For example, details of your approval process
+    - `<repository>.json `
+    - `other.json`
 
 ### Repositories
 
