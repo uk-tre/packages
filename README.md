@@ -117,7 +117,7 @@ After you have made your changes, open a PR to the main branch.
 
 There are CI jobs which must pass for changes to be merged.
 
-A validation process ensures taht package lists match the schemas.
+A validation process ensures that package lists match the schemas.
 You can test this locally using the script `utility/validate.py`.
 
 [Prettier](https://prettier.io/) is used to enforce some code style.
