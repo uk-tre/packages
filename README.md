@@ -46,7 +46,7 @@ For example,
 ```
 
 Additionally for packages not in a major repository, _i.e._ those in `other.json`, a `url` field is added to uniquely identify the package and give its source.
-The other schema is described in [`schema_other.json`](schema_other.json).
+The "other" schema is described in [`schema_other.json`](schema_other.json).
 
 ### Usage
 
