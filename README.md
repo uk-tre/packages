@@ -108,7 +108,7 @@ For example, to get a list of PyPI packages currently allowed by any organisatio
 
 ```R
 library(jsonify)
-allowed <- 
+allowed <-
   unique(
     unlist(
       lapply(
