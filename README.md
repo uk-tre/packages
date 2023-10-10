@@ -120,7 +120,6 @@ allowed <-
 allowed
 ```
 
-
 ### Contributing
 
 #### Adding an organisation
