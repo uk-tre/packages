@@ -101,6 +101,26 @@ allowed = list(set(allowed))
 print(allowed)
 ```
 
+#### R
+
+With a local copy of the repository using the `jsonify` package.
+For example, to get a list of PyPI packages currently allowed any organisation:
+
+```R
+library(jsonify)
+allowed <- 
+  unique(
+    unlist(
+      lapply(
+        list.files(pattern = "*pypi.json", recursive = TRUE),
+        function(file) from_json(file)[["package_name"]] 
+      )
+    )
+  )
+allowed
+```
+
+
 ### Contributing
 
 #### Adding an organisation
