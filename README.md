@@ -65,7 +65,7 @@ $ https https://raw.githubusercontent.com/uk-tre/packages/main/alan_turing_insti
 ```
 
 With a local copy of the repository using `cat` and `jq`.
-For example, to get a list of PyPI packages currently allowed any organisation:
+For example, to get a list of PyPI packages currently allowed by any organisation:
 
 ```console
 $ cat **/pypi.json | jq -s 'add | map(select(.revoke_date == null)) | [.[].package_name] | unique | .[]'
@@ -80,7 +80,7 @@ $ cat **/pypi.json | jq -s 'add | map(select(.revoke_date == null)) | [.[].packa
 ### Python
 
 With a local copy of the repository using the Python standard library.
-For example, to get a list of PyPI packages currently allowed any organisation:
+For example, to get a list of PyPI packages currently allowed by any organisation:
 
 ```Python
 import json
@@ -99,6 +99,28 @@ allowed = [
 ]
 allowed = list(set(allowed))
 print(allowed)
+```
+
+### R
+
+With a local copy of the repository using the `jsonify` package.
+For example, to get a list of PyPI packages currently allowed by any organisation:
+
+```R
+library(jsonify)
+allowed <-
+  unique(
+    unlist(
+      lapply(
+        list.files(pattern = "*pypi.json", recursive = TRUE),
+        function(file) {
+          packagelist <- from_json(file)
+          packagelist[is.na(packagelist[["revoke_date"]]), "package_name"]
+        }
+      )
+    )
+  )
+allowed
 ```
 
 ## Contributing
