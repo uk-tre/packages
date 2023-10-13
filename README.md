@@ -19,7 +19,7 @@ We recognise the following major repositories and organisations may create `<rep
 - [PyPI](https://pypi.org)
 - [CRAN](https://cran.r-project.org)
 
-### Package list schema
+## Package list schema
 
 Package lists are formatted as JSON.
 The schema for major repositories is formally described in [`schema.json`](./schema.json).
@@ -48,12 +48,12 @@ For example,
 Additionally for packages not in a major repository, _i.e._ those in `other.json`, a `url` field is added to uniquely identify the package and give its source.
 The "other" schema is described in [`schema_other.json`](schema_other.json).
 
-### Usage
+## Usage
 
 The package lists are simply text files conforming to the JSON schemas.
 You can build queries by parsing these files in a local copy of the repository or from GitHub.
 
-#### Command line
+### Command line
 
 Using [`httpie`](https://httpie.io/) and [`jq`](https://jqlang.github.io/jq/).
 For example, to get a list of PyPI packages currently allowed by The Alan Turing Institute:
@@ -77,7 +77,7 @@ $ cat **/pypi.json | jq -s 'add | map(select(.revoke_date == null)) | [.[].packa
 "pymc3"
 ```
 
-#### Python
+### Python
 
 With a local copy of the repository using the Python standard library.
 For example, to get a list of PyPI packages currently allowed any organisation:
@@ -101,19 +101,20 @@ allowed = list(set(allowed))
 print(allowed)
 ```
 
-### Contributing
+## Contributing
 
-#### Adding an organisation
+
+### Adding an organisation
 
 To add your organisation, create a new directory at the top level of the repository.
 Store your package lists in that directory.
 Also, create a `README.md` file where you can write information about your organisation and its package approval process.
 
-#### Making changes
+### Making changes
 
 After you have made your changes, open a PR to the main branch.
 
-#### Validation and CI
+### Validation and CI
 
 There are CI jobs which must pass for changes to be merged.
 
