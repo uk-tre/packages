@@ -113,7 +113,10 @@ allowed <-
     unlist(
       lapply(
         list.files(pattern = "*pypi.json", recursive = TRUE),
-        function(file) from_json(file)[["package_name"]]
+        function(file) {
+          packagelist <- from_json(file)
+          packagelist[is.na(packagelist[["revoke_date"]]), "package_name"]
+        }
       )
     )
   )
