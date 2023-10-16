@@ -2,6 +2,10 @@
 
 Structured records of approved packages from TRE operators.
 
+## Code of conduct
+
+This project follows the [UK TRE code of conduct](https://github.com/uk-tre/.github/blob/main/CODE_OF_CONDUCT.md).
+
 ## Structure
 
 - `./`
@@ -124,10 +128,6 @@ allowed
 ```
 
 ## Contributing
-
-### Code of conduct
-
-This project follows the [UK TRE code of conduct](https://github.com/uk-tre/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ### Adding an organisation
 
